@@ -2,19 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Shadow Fleet positions</title>
     <style>
-        body, html {
+        * {
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
+            box-sizing: border-box;
         }
-        .map-container {
-            position: relative;
+        
+        body, html {
             width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: fixed;
+        }
+
+        .map-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
             height: 100vh;
+        }
+
+        iframe {
+            width: 100vw !important;
+            height: 100vh !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .map-container, iframe {
+                height: 100dvh !important; /* dynamic viewport height for mobile */
+            }
         }
     </style>
 </head>
@@ -25,10 +51,7 @@
                 id="datawrapper-chart-ydcXw" 
                 src="https://datawrapper.dwcdn.net/ydcXw/1/" 
                 scrolling="no" 
-                frameborder="0" 
-                style="width: 0; min-width: 100% !important; border: none;" 
-                height="929" 
-                data-external="1">
+                frameborder="0">
         </iframe>
     </div>
 
